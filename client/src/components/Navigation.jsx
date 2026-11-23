@@ -1,9 +1,14 @@
 import { Bell, Mail } from "lucide-react"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 const Navigation = ({socket}) => {
     const [notification,setNotification] = useState([])
     const [open, setOpen] = useState(false)
+        useEffect(() => {
+            socket.on("getNotification", (data) => {
+            setNotification((prev) => [...prev, data]);
+        });
+    },[socket])
     const displayNotification = ({ senderName, type }) => {
     let action;
 
