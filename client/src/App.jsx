@@ -9,7 +9,11 @@ const App = () => {
   const [user,setUser] = useState("")
   const [socket,setSocket] = useState(null)
   useEffect(() => {
-   setSocket(io('http://localhost:3000'))
+   const sockets = io('http://localhost:3000')
+   setSocket(sockets)
+    return () => {
+    sockets.disconnect()
+  }
   },[])
   useEffect(() => {
     socket?.emit("newUser", user);

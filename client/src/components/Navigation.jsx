@@ -23,6 +23,7 @@ const Navigation = ({socket}) => {
       <span className="notification">{`${senderName} ${action} your post.`}</span>
     );
   };
+  console.log(notification)
   return (
     <div className="relative w-full p-2 h-[6vh] bg-green-900 flex items-center justify-between">
         <h1 className="font-extrabold text-white text-xl">Notify</h1>  
@@ -53,7 +54,7 @@ const Navigation = ({socket}) => {
             <div className="overflow-y-auto flex-1">
                  {notification.map((n) => displayNotification(n))}
             </div>
-            <button className="text-xs bg-green-900 text-white font-bold p-1 rounded-md cursor-pointer">Mark as read</button>
+            <button onClick={() => setNotification([])} className="text-xs bg-green-900 text-white font-bold p-1 rounded-md cursor-pointer">Mark as read</button>
         </div>
         }
     </div>

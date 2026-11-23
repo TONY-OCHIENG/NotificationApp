@@ -43,10 +43,6 @@ io.on("connection", (socket) => {
 
   socket.on("sendNotification", ({ senderName, receiverName, type }) => {
     const receiver = getUser(receiverName)
-    if (!receiver) {
-      console.log("Receiver not online:", receiverName)
-      return
-    }
     io.to(receiver.socketId).emit("getNotification", { senderName, type })
   })
 
