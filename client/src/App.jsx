@@ -1,5 +1,7 @@
 import { useState } from "react"
 import Navigation from "./components/Navigation"
+import { posts } from "./components/data"
+import Card from "./components/Card"
 
 const App = () => {
   const [userName,setuserName] = useState("")
@@ -7,10 +9,13 @@ const App = () => {
   const [socket,setSocket] = useState("")
   return (
     <div className="w-full h-[100vh] bg-stone-50 flex justify-center items-center">
-      <div className="w-[25%] bg-white shadow-mdrounded-md">
+      <div className="w-[25%] bg-white shadow-md rounded-md ">
        {
-         user ? <div className="">
+         user ? <div className="flex flex-col gap-4">
            <Navigation socket={socket}/>
+           {posts.map((post) => (
+            <Card key={post.id} post={post} socket={socket} user={user}/>
+          ))}
          </div> 
          :
           <div className="max-w-md p-4">
