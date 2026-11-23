@@ -12,6 +12,13 @@ const io = new Server(server,{
     }
 })
 
+let onlineUsers = [];
+
+const addNewUser = (username, socketId) => {
+  !onlineUsers.some((user) => user.username === username) &&
+    onlineUsers.push({ username, socketId });
+};
+
 app.use(cors({
     origin:"http://localhost:5173",
     credentials: true,
@@ -19,7 +26,9 @@ app.use(cors({
 }))
 
 io.on("connection",(socket) => {
-    console.log("user connected",socket.id)
+    socket.on("newUser",(username) => {
+        addnewUser(username, socket.id)
+    })
 })
 
 server.listen(port, () => {
