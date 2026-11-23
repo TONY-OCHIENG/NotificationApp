@@ -11,6 +11,9 @@ const App = () => {
   useEffect(() => {
    setSocket(io('http://localhost:3000'))
   },[])
+  useEffect(() => {
+    socket?.emit("newUser", user);
+  }, [socket, user]);
   return (
     <div className="w-full h-[100vh] bg-stone-50 flex justify-center items-center">
       <div className="w-[25%] bg-white shadow-md rounded-md ">
