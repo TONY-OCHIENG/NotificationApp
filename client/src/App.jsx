@@ -1,12 +1,16 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Navigation from "./components/Navigation"
 import { posts } from "./components/data"
 import Card from "./components/Card"
+import { io } from "socket.io-client"
 
 const App = () => {
   const [userName,setuserName] = useState("")
   const [user,setUser] = useState("")
-  const [socket,setSocket] = useState("")
+  const [socket,setSocket] = useState(null)
+  useEffect(() => {
+   setSocket(io('http://localhost:3000'))
+  },[])
   return (
     <div className="w-full h-[100vh] bg-stone-50 flex justify-center items-center">
       <div className="w-[25%] bg-white shadow-md rounded-md ">
