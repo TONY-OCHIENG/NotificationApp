@@ -18,6 +18,10 @@ app.use(cors({
     methods:["GET","POST"]
 }))
 
+io.on("connection",(socket) => {
+    console.log("user connected",socket.id)
+})
+
 server.listen(port, () => {
     console.log("Server is running")
 })
