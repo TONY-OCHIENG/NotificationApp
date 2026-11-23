@@ -14,6 +14,31 @@ const Card = ({post,socket,user}) => {
             alt=""
             className="w-full aspect-square object-cover h-55"
         />
+        <div className="mt-2 flex gap-2">
+            {liked ? (
+                <img src='/images/heartFilled.svg' alt="" className="h-3 w-3 object-cover" />
+                ) : (
+                <img
+                    src="/images/heart.svg"
+                    alt=""
+                    className="cardIcon"
+                    onClick={() => handleNotification(1)}
+                />
+           )}
+            <img
+            src="/images/comment.svg"
+            alt=""
+            className="cardIcon"
+            onClick={() => handleNotification(2)}
+            />
+            <img
+            src="/images/share.svg"
+            alt=""
+            className="cardIcon"
+            onClick={() => handleNotification(3)}
+            />
+            <img src="/images/info.svg" alt="" className="cardIcon infoIcon" />
+        </div>
     </div>
   )
 }
