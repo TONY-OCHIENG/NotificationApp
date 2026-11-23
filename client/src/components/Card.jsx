@@ -24,7 +24,7 @@ const Card = ({post,socket,user}) => {
         />
         <div className="mt-2 flex gap-2">
             {liked ? (
-                <img src='images/heartFilled.svg' className="cursor-pointer" />
+                <img src='images/heartFilled.svg' className="cursor-pointer h-4 w-4" />
                 ) : (
                 <img
                     src="/images/heart.svg"
