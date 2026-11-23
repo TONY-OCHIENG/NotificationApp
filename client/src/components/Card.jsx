@@ -16,28 +16,28 @@ const Card = ({post,socket,user}) => {
         />
         <div className="mt-2 flex gap-2">
             {liked ? (
-                <img src='/images/heartFilled.svg' alt="" className="h-3 w-3 object-cover" />
+                <img src='images/heartFilled.svg' className="cursor-pointer" />
                 ) : (
                 <img
                     src="/images/heart.svg"
                     alt=""
-                    className="cardIcon"
+                    className="cursor-pointer h-4 w-4"
                     onClick={() => handleNotification(1)}
                 />
            )}
             <img
             src="/images/comment.svg"
             alt=""
-            className="cardIcon"
+            className="cursor-pointer h-4 w-4"
             onClick={() => handleNotification(2)}
             />
             <img
             src="/images/share.svg"
             alt=""
-            className="cardIcon"
+            className="cursor-pointer h-4 w-4"
             onClick={() => handleNotification(3)}
             />
-            <img src="/images/info.svg" alt="" className="cardIcon infoIcon" />
+            <img src="/images/info.svg" alt="" className="cursor-pointer h-4 w-4" />
         </div>
     </div>
   )
