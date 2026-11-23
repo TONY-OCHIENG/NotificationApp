@@ -19,6 +19,10 @@ const addNewUser = (username, socketId) => {
     onlineUsers.push({ username, socketId });
 };
 
+const getUser = (username) => {
+  return onlineUsers.find((user) => user.username === username);
+};
+
 app.use(cors({
     origin:"http://localhost:5173",
     credentials: true,
