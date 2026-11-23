@@ -2,6 +2,14 @@ import { useState } from "react"
 
 const Card = ({post,socket,user}) => {
     const [liked,setLiked] = useState(false)
+    const handleNotification = (type) => {
+    type === 1 && setLiked(true);
+    socket.emit("sendNotification", {
+      senderName: user,
+      receiverName: post.username,
+      type,
+    });
+  };
   return (
    <div className="p-2 w-full flex flex-col">
         <div className="flex items-center gap-2 mb-2">
